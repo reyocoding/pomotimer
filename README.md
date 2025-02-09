@@ -44,7 +44,7 @@ python main.py
 ```
 
 ## Screenshots
-![Pomodoro Timer UI](pomo tmer screenshot.png)
+![Pomodoro Timer UI](pomo_timer_ screenshot.png)
 
 ## Future Improvements
 - Customizable work and break durations
