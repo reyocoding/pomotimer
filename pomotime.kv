@@ -1,0 +1,63 @@
+Mainwidget:
+
+
+<Lineprogress>:
+    
+    canvas.before:
+        Color:
+            rgba: 0, 1, 0, 1  # Green color
+
+        Line:
+            id : progress_line
+            width: 4
+            points: self.x, self.y + self.height / 2, self.x + self.width *self.progress , self.y + self.height / 2
+        
+<Mainwidget>:
+    
+    
+    
+    
+    
+    progress_bar: progress_bar
+    BoxLayout:
+        orientation: "vertical"        
+        BoxLayout:
+            orientation: "vertical"
+            size_hint_y: 0.4  # Reduce space taken by this section
+            
+            
+            Label:
+                text: root.timer_mode
+                font_size: 30
+            Label:
+                text: root.label_timer
+                font_size: 60
+            Lineprogress:
+                id :progress_bar
+        BoxLayout:
+            size_hint_y: 0.2
+            Button:
+                id: start_button
+                text: "Start"
+                on_press: root.start_timer(self)
+            BoxLayout:
+                Button:
+                    id: rest_button
+                    text: "Reset"
+                    on_press: root.rest_timer(start_button, root.timer_mode)
+
+        BoxLayout:
+            size_hint_y: 0.1    
+            Button:
+                text: "Break"
+                on_press: root.rest_timer(start_button, "Break")
+
+            Button:
+                text: "Long break"
+                on_press: root.rest_timer(start_button, "Long break")
+            Button:
+                text: "Pomo"
+                on_press: root.rest_timer(start_button, "Pomo time")
+
+
+
